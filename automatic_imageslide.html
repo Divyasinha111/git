@@ -1,0 +1,92 @@
+<!--<html>
+    <body style = "margin: 0;"> </body>
+        <img name="slide" width="70%"  
+        <script>
+            var images Array();
+            images[0]='image1.jpg';
+            images[1]='image2.jpg';
+            images[2]='image3.jpg';
+            images[3]='image4.jpg';
+
+        </script>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Image Slideshow</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #slideshow-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="slideshow-container">
+        <div class="mySlides">
+            <img src="image1.jpg" alt="Slide 1">
+        </div>
+        <div class="mySlides">
+            <img src="image2.jpg" alt="Slide 2">
+        </div>
+        <div class="mySlides">
+            <img src="image3.jpg" alt="Slide 3">
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Increment the slide index
+            slideIndex++;
+
+            // Reset to the first slide if it exceeds the total number of slides
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Display the current slide
+            slides[slideIndex - 1].style.display = "block";
+
+            // Change slide every 3 seconds (3000 milliseconds)
+            setTimeout(showSlides, 3000);
+        }
+
+        // Start the slideshow
+        showSlides();
+    </script>
+</body>
+</html>
+

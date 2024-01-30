@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Form Validation</h2>
+
+    <form id="myForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="agree">Agree to Terms:</label>
+        <input type="checkbox" id="agree" name="agree" required>
+        <span> I agree to the terms and conditions</span>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var gender = document.getElementById('gender').value;
+            var agree = document.getElementById('agree').checked;
+
+            if (firstName === "" || lastName === "" || email === "" || password === "" || gender === "" || !agree) {
+                alert("All fields must be filled out and terms must be agreed");
+            } else {
+                // Additional validation can be added here if needed
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+
+</body>
+</html>
